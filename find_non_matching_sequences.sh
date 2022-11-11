@@ -1,12 +1,15 @@
 #!bin/bash
 
-### Script for finding selected partial sequences MATCHING and NOT MATCHING to other sequence list
-
-### Input format: 
-
-# query (-q): as a list in a csv or txt file (or similar) with ONLY the sequences you're looking for
-# subject (-s): as a list or a fasta file, with sequences
-# output folder (-o): 
+###
+###   @author: asansal
+###
+###   Script for finding selected partial sequences MATCHING and NOT MATCHING to other sequence list
+###
+###   Input format: 
+###
+###   query (-q): as a list in a csv or txt file (or similar) with ONLY the sequences you're looking for
+###   subject (-s): as a list or a fasta file, with sequences
+###   output folder (-o): 
 
 while getopts 'q:s:o:' flag; do
   case "${flag}" in
