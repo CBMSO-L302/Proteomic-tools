@@ -37,8 +37,7 @@ And there will be an intermediate file, which will eliminate the repetitions in 
 
 Example of output file:
 
-`
-RGSQQYRGLSVAELTQQMFDAKN
+`RGSQQYRGLSVAELTQQMFDAKN
 
 ELTQQMFDAKN
 
@@ -60,8 +59,7 @@ NVINGGKHAGNVLPFQ
 
 VADSVHVSKS
 
-KDDTVMLNGGGDAAAVKER
-`
+KDDTVMLNGGGDAAAVKER`
 
 
 
