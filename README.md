@@ -6,7 +6,7 @@ After crossing proteomic with genomic files (CDS and 6ORF), peptides detected we
 
 This tool allows you from a list of peptides (query) to cross it with the peptide fasta file (subject) and tell you whether these peptides are or not in the subject file.
 
-As output, it exports a list of FOUND peptides - peptides-found.txt - and a list of peptides NOT FOUND - peptides-notfound.txt - (the interesting file in this case).
+As output, it exports a list of FOUND peptides - `peptides-found.txt` - and a list of peptides NOT FOUND - `peptides-notfound.txt` - (the interesting file in this case).
 
 This tool should also work with DNA or RNA files, but it has the name 'peptide' since it was made for this purpose.
 
