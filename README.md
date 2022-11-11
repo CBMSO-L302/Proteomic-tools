@@ -18,9 +18,11 @@ This shell script uses bash.
 
 The options are mandatory, and mean:
 
--q: path to query file
--s: path to subject file
--o: output folder
+`-q`: path to query file
+
+`-s`: path to subject file
+
+`-o`: output folder
 
 ### Example of usage:
 
