@@ -14,7 +14,7 @@ This tool should also work with DNA or RNA files, but it has the name 'peptide' 
 
 This shell script uses bash.
 
-`bash path/to/find_non_matching_sequences.sh -q [1] -s [2] -o [3]`
+`bash path/to/find_non_matching_sequences.sh -q /path/to/query.csv -s /path/to/subject.fasta -o /path/to/output/folder`
 
 The options are mandatory, and mean:
 
