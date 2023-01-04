@@ -88,15 +88,15 @@ The tool `clean_fasta_proteomics.sh` was designed for manipulating proteomics da
 
 - `X(sub Y)`: The aminoacid X is substituted with the aminoacid Y. 
 
-E.g: ABCDE **Z(sub F)** GHI > ABCDE **F** GHI
+E.g: ABCDE **Z(sub F)** GHI > ABCDEFGHI
 
 - `(del Y)`: The aminoacid Y is not in the sequence, but if added it matches. Therefore, we add it again. 
 
-E.g: ABC **(del D)** EFGHI > ABC **D** EFGHI
+E.g: ABC **(del D)** EFGHI > ABCDEFGHI
 
 - `(+NUM.BER)`: The aminoacid has some post-traductional modification, we just remove them. 
 
-E.g: AB **(+101.03)** CDEF **(-12.01)** GHI > AB CDEF GHI
+E.g: AB **(+101.03)** CDEF **(-12.01)** GHI > ABCDEFGHI
 
 There will be 2 output files:
 
