@@ -111,6 +111,6 @@ There will be 2 output files:
 
 `-o`: output folder
 
-The output file example will be the same as in the previous tools. It will also generate some intermediate files (0-5) with the extension _clean(number).fasta, which will be removed after the process finishes.
+The output file example will be the same as in the previous tools. It will also generate some intermediate files (0-5) with the extension `_clean(number).fasta`, which will be removed after the process finishes.
 
 CAREFUL! If there are ANY files in the output folder with the extension "clean.fasta" (*clean.fasta) they will be REMOVED at the beginning of the process. 
