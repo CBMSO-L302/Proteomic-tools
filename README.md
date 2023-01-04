@@ -86,9 +86,17 @@ CAREFUL! If there are ANY files in the output folder named "NoReps.txt", "peptid
 
 The tool `clean_fasta_proteomics.sh` was designed for manipulating proteomics data extracted with peaks. This kind of data has some modificatios because the peptides appear with some modifications. We treat them with this script in order to elliminate them and so they match with the other peptide files obtained with the same program. The modifications of the peptide sequences from Peaks and the transformations made are the following:
 
-- X(sub Y): The aminoacid X is substituted with the aminoacid Y. E.g: ABCDEZ(sub F)GHI > ABCDEFGHI
-- (del Y): The aminoacid Y is not in the sequence, but if added it matches. Therefore, we add it again. E.g: ABC(del D)EFGHI > ABCDEFGHI
-- (+NUM.BER): The aminoacid has some post-traductional modification, we just remove them. E.g: AB(+101.03)CDEF(-12.01)GHI > ABCDEFGHI
+- `X(sub Y)`: The aminoacid X is substituted with the aminoacid Y. 
+
+E.g: ABCDE **Z(sub F)** GHI > ABCDE **F** GHI
+
+- `(del Y)`: The aminoacid Y is not in the sequence, but if added it matches. Therefore, we add it again. 
+
+E.g: ABC **(del D)** EFGHI > ABC **D** EFGHI
+
+- `(+NUM.BER)`: The aminoacid has some post-traductional modification, we just remove them. 
+
+E.g: AB **(+101.03)** CDEF **(-12.01)** GHI > AB CDEF GHI
 
 There will be 2 output files:
 
