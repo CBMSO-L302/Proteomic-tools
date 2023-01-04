@@ -7,7 +7,7 @@
 # query (-q): as a list in a csv or txt file or similar with ONLY the sequences of interest
 # output folder (-o): folder where the files will be exported. Careful! Previous files with the same names in this folder will be removed!
 
-while getopts 'q:s:' flag; do
+while getopts 'q:o:' flag; do
   case "${flag}" in
     q)
       QUERY="${OPTARG}"
