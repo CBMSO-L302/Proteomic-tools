@@ -17,7 +17,7 @@ This tool should also work with DNA or RNA files, but it has the name 'peptide' 
 
 This shell script uses bash.
 
-`bash path/to/find_non_matching_sequences.sh -q /path/to/query.csv -s /path/to/subject.fasta -o /path/to/output/folder`
+`bash /path/to/find_non_matching_sequences.sh -q /path/to/query.csv -s /path/to/subject.fasta -o /path/to/output/folder`
 
 The options are mandatory, and mean:
 
@@ -35,8 +35,8 @@ I try to find if the peptides in my list (list.csv) are in the proteome of Leish
 
 The output will be 2 files:
 
-`peptides-found.txt`
-`peptides-notfound.txt`
+- peptides found in both files will be in the file `peptides-found.txt`
+- peptides in the query file not found in the subject file will be in `peptides-notfound.txt`
 
 And there will be an intermediate file, which will eliminate the repetitions in the original file which will be `NoReps.txt`.
 
@@ -57,6 +57,8 @@ VADSVHSKS
 KDDTVMLNGGGDAAAVKER
 ```
 
+CAREFUL! If there are ANY files in the output folder named "NoReps.txt", "peptides-found.txt" and/or "peptides-notfound.txt" they will be REMOVED at the beginning of the process.
+
 ## remove_repeated_peptides.sh
 
 The tool `remove_repeated_peptides.sh` is intended to remove peptides that could be contained inside other bigger peptides in the same file, therefore simplifying the task of manually exploring the peptide files. The tool will first eliminate repetitions (exact same peptide). Then, it will look for each sequence inside the same file and export them in the determined output_folder: 
@@ -68,7 +70,7 @@ The tool `remove_repeated_peptides.sh` is intended to remove peptides that could
 
 The script is based on the previous tool, so the usage is very similar:
 
-`bash find_non_matching_sequences.sh -q path/to/input/list.csv -o path/to/output`
+`bash /path/to/find_non_matching_sequences.sh -q /path/to/input/list.csv -o /path/to/output`
 
 In this case, since we only need one file which needs to be modified, we only need the query option. These options are mandatory for the tool to function.
 
@@ -78,6 +80,29 @@ In this case, since we only need one file which needs to be modified, we only ne
 
 The output file example will be the same as in the previous tool, and it will also generate an intermediate file called ´NoReps.txt´. 
 
+CAREFUL! If there are ANY files in the output folder named "NoReps.txt", "peptides-repeated.txt" and/or "peptides-notrepeated.txt" they will be REMOVED at the beginning of the process.
+
 ## clean_fasta_proteomics.sh
 
-The tool `clean_fasta_proteomics.sh` was designed for manipulating proteomics data extracted with peaks. 
+The tool `clean_fasta_proteomics.sh` was designed for manipulating proteomics data extracted with peaks. This kind of data has some modificatios because the peptides appear with some modifications. We treat them with this script in order to elliminate them and so they match with the other peptide files obtained with the same program. The modifications of the peptide sequences from Peaks and the transformations made are the following:
+
+- X(sub Y): The aminoacid X is substituted with the aminoacid Y. E.g: ABCDEZ(sub F)GHI > ABCDEFGHI
+- (del Y): The aminoacid Y is not in the sequence, but if added it matches. Therefore, we add it again. E.g: ABC(del D)EFGHI > ABCDEFGHI
+- (+NUM.BER): The aminoacid has some post-traductional modification, we just remove them. E.g: AB(+101.03)CDEF(-12.01)GHI > ABCDEFGHI
+
+There will be 2 output files:
+
+- repeated peptides, found in bigger peptidic sequences, will be in `peptides-repeated.txt`
+- unique peptides will be exported into the `peptides-notrepeated.txt` file
+
+### Usage
+
+`bash /path/to/clean_fasta_proteomics.sh -s /path/to/sequences.csv -o /path/to/output`
+
+`-q`: path to sequences file
+
+`-o`: output folder
+
+The output file example will be the same as in the previous tools. It will also generate some intermediate files (0-5) with the extension _clean(number).fasta, which will be removed after the process finishes.
+
+CAREFUL! If there are ANY files in the output folder with the extension "clean.fasta" (*clean.fasta) they will be REMOVED at the beginning of the process. 
