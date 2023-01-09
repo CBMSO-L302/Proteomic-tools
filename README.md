@@ -109,12 +109,28 @@ There will be 2 output files:
 
 ### Usage
 
-`bash /path/to/clean_fasta_proteomics.sh -s /path/to/sequences.csv -o /path/to/output`
+`bash /path/to/clean_fasta_proteomics.sh -s /path/to/sequences.csv -o /path/to/output -n name_of_the_species`
 
 `-q`: path to sequences file
 
 `-o`: output folder
 
+`-n`: name of the species that appears in the sequences names of the fasta file
+
 The output file example will be the same as in the previous tools. It will also generate some intermediate files (0-5) with the extension `_clean(number).fasta`, which will be removed after the process finishes.
+
+The usage of the option -n is optional, and it's only for avoiding the removal of characters in the fasta names. For example, if we have a fasta file with the format:
+
+```
+>LdHU3:126327..237520
+A.AKLDFKVSBKSAHS.F
+```
+
+If we want the script to act only in lines without the 'LdHU3' name, we use the option -n LdHU3. However, if we don't specify the specific characters that distinguish the fasta file, it might end up like this:
+
+```
+LdHU3:1263723752
+AKLDFKVSBKSAHS
+```
 
 CAREFUL! If there are ANY files in the output folder with the extension "clean.fasta" (*clean.fasta) they will be REMOVED at the beginning of the process. 
