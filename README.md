@@ -94,11 +94,15 @@ E.g: H.ABCDEFGHI.P > ABCDEFGHI
 
 E.g: ABCDE **Z(sub F)** GHI > ABCDEFGHI
 
-- `(del Y)`: The aminoacid Y is not in the sequence, but if added it matches. Therefore, we add it again. 
+- `(del Y)`: The aminoacid 'Y' is not in the detected sequence, but if added it matches with the genomic sequence. Therefore, we add it again.
 
 E.g: ABC **(del D)** EFGHI > ABCDEFGHI
 
-- `(+NUM.BER)`: The aminoacid has some post-traductional modification, we just remove them. 
+- `Y(ins)`: The aminoacid Y is detected, but not in the genomic sequence. Therefore, we remove it to match the fasta sequence.
+
+E.g: ABCDEF **R(ins)** GHI > ABCDEFGHI
+
+- `(+NUM.BER)`: The aminoacid has some post-traductional modification, we just remove them. Sa
 
 E.g: AB **(+101.03)** CDEF **(-12.01)** GHI > ABCDEFGHI
 
